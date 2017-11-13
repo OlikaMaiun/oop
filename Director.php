@@ -6,11 +6,9 @@
  * Time: 20:00
  */
 require_once ('Manager.php');
-class Director
+require_once ('Employee.php');
+class Director extends Employee
 {
-    public $name;
-    public $salary;
-    public $hasTask;
     public $favourite;
     function __construct($name, $salary, $hasTask)
     {
@@ -18,6 +16,12 @@ class Director
         $this->salary = $salary;
         $this->hasTask = $hasTask;
     }
+
+    function work()
+    {
+       echo "I'm director. I'm looking for others. \n";
+    }
+
     function getInfo(){
         echo "Director: {$this->name}, {$this->salary}, {$this->hasTask}, {$this->favourite->name}\n";
     }

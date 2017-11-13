@@ -7,6 +7,7 @@
  */
 require_once ('Director.php');
 require_once ('Manager.php');
+require_once ('Employee.php');
 class Company
 {
 private $employees;
@@ -51,6 +52,13 @@ private static $counter=0;
 function allEmployeesInfo(){
     foreach ($this->employees as $empl){
         $empl->getInfo();
+    }
+}
+function showInProcessEmployees(){
+    for ($i=0; $i<count($this->employees); $i++){
+        if ($this->employees[$i]->hasTask == true){
+            $this->employees[$i]->work();
+        }
     }
 }
 }
